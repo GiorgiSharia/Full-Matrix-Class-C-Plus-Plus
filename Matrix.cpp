@@ -158,7 +158,7 @@ void Matrix::setElement(const int& i,const int& j,const double& value) {
  }
 
 //addittion overloading
- Matrix operator+(Matrix& mtrx1, Matrix& mtrx2) {
+ Matrix operator+(const Matrix& mtrx1,const Matrix& mtrx2) {
 	 int mtrx1ColSize = mtrx1.sizeCols;
 	 int mtrx1RowSize = mtrx1.sizeRows;
 	 if ((mtrx1ColSize != mtrx2.sizeCols) || mtrx1RowSize != mtrx2.sizeRows) {
@@ -176,7 +176,7 @@ void Matrix::setElement(const int& i,const int& j,const double& value) {
  }
 
  //substraction overloading
- Matrix operator-(Matrix& mtrx1, Matrix& mtrx2) {
+ Matrix operator-(const Matrix& mtrx1, const Matrix& mtrx2) {
 	 int mtrx1ColSize = mtrx1.sizeCols;
 	 int mtrx1RowSize = mtrx1.sizeRows;
 	 if ((mtrx1ColSize != mtrx2.sizeCols) || mtrx1RowSize != mtrx2.sizeRows) {
@@ -278,7 +278,7 @@ Matrix& Matrix::operator*=(const Matrix& mtrx1) {
 }
 
 //overload comparison function ==
- bool operator==(Matrix& mtrx1, Matrix& mtrx2) {
+ bool operator==(const Matrix& mtrx1,const  Matrix& mtrx2) {
 	 if ((mtrx1.sizeRows != mtrx2.sizeRows) || (mtrx1.sizeCols != mtrx2.sizeCols)) {
 		 return false;
 	 }
@@ -291,7 +291,7 @@ Matrix& Matrix::operator*=(const Matrix& mtrx1) {
  }
  
 //overload scalar multiplication 
-void Matrix::operator^(double a) {
+void Matrix::operator^(const double& a) {
 	if (matPtr == NULL || sizeCols == 0) {
 		throw exception("Error, Matrix is not initialized\n");
 		return;
@@ -322,7 +322,7 @@ Matrix Matrix::operator!() {
 }
 
 //overload multiplication operator
-Matrix operator*(Matrix& mtrx1, Matrix& mtrx2) {
+Matrix operator*(const Matrix& mtrx1,const Matrix& mtrx2) {
 	if (mtrx1.sizeCols == 0 || mtrx2.sizeCols == 0 || mtrx1.matPtr == NULL || mtrx2.matPtr == NULL) {
 		throw exception("Error,while trying to multiply\n");
 	}
@@ -348,7 +348,7 @@ Matrix operator*(Matrix& mtrx1, Matrix& mtrx2) {
 }
 
 //overload for ostream operator <<
-ostream& operator<<(ostream& os, Matrix& mtrx1) {
+ostream& operator<<(ostream& os,const Matrix& mtrx1) {
 	for (int i = 0; i < mtrx1.sizeRows; i++) {
 		for (int j = 0; j < mtrx1.sizeCols; j++) {
 			os << mtrx1.matPtr[i][j] << " is the value on position " << i << " , "<<j <<"\n";

@@ -21,13 +21,13 @@ class Matrix {
 		Matrix& operator+=(const Matrix& mtrx1);
 		Matrix& operator-=(const Matrix& mtrx1);
 		Matrix& operator*=(const Matrix& mtrx1);
-		void operator^(double a);
+		void operator^(const double& a);
 		Matrix operator!();
-		friend bool operator==(Matrix& mtrx1, Matrix& mtrx2);
-		friend Matrix operator+(Matrix& mtrx1,Matrix& mtrx2);
-		friend Matrix operator-(Matrix& mtrx1, Matrix& mtrx2);
-		friend Matrix operator*(Matrix& mtrx1, Matrix& mtrx2);
-		friend ostream& operator<<(ostream& os, Matrix& mtrx1);
+		friend bool operator==(const Matrix& mtrx1,const Matrix& mtrx2);
+		friend Matrix operator+(const Matrix& mtrx1,const Matrix& mtrx2);
+		friend Matrix operator-(const Matrix& mtrx1,const Matrix& mtrx2);
+		friend Matrix operator*(const Matrix& mtrx1,const Matrix& mtrx2);
+		friend ostream& operator<<(ostream& os,const Matrix& mtrx1);
 		friend istream& operator>>(istream& is, Matrix& mtrx1);
 	private:
 		double ** matPtr;
