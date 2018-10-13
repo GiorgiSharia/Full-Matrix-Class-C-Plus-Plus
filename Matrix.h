@@ -7,13 +7,13 @@ class Matrix {
 
 	public:
 		Matrix();
-		Matrix(const int& sizeRows,const int& sizeCols);
+		Matrix(const int sizeRows,const int sizeCols);
 		Matrix(const Matrix&);
 		~Matrix();
 		int getSizeRows();
 		int getSizeCols();
-		double getElement(const int& row,const int& column);
-		void setElement(const int& row, const int& column,const double& value);
+		double getElement(const int row,const int column);
+		void setElement(const int row, const int column,const double& value);
 		void setSizeRows(int length);
 		void setSizeCols(int length);
 		void print();

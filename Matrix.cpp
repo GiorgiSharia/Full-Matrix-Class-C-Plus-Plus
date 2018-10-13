@@ -20,7 +20,7 @@ Matrix::Matrix() {
 
 //constructor with dimensions as arguments
 
-Matrix::Matrix(const int& rows,const int& cols) {
+Matrix::Matrix(const int rows,const int cols) {
 	cout << "Creating Matrix Object Using Constructor With Parameters\n\n";
 
 	sizeRows = rows;
@@ -94,7 +94,7 @@ void Matrix::print() {
 }
 
 //get value of precise element in matrix
-double Matrix::getElement(const int& i,const int& j) {
+double Matrix::getElement(const int i,const int j) {
 	if (matPtr == NULL || sizeRows == 0 || sizeCols == 0) {
 		throw exception("Error, trying to get value of uninitialized matrix\n");
 	}
@@ -107,7 +107,7 @@ double Matrix::getElement(const int& i,const int& j) {
 }
 
 //set value of precise element in matrix
-void Matrix::setElement(const int& i,const int& j,const double& value) {
+void Matrix::setElement(const int i,const int j,const double& value) {
 	if (matPtr == NULL || sizeRows == 0 || sizeCols == 0) {
 		throw exception("Error, trying to get value of uninitialized matrix\n");
 	}
