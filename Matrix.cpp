@@ -15,7 +15,7 @@ Matrix::Matrix() {
 
 	sizeCols = 0;
 	sizeRows = 0;
-	matPtr = NULL;
+	matPtr = nullptr;
 };
 
 //constructor with dimensions as arguments
@@ -34,8 +34,8 @@ Matrix::Matrix(const int rows,const int cols) {
 
 //copy constructor
 Matrix::Matrix(const Matrix& fromMatr) {
-	if (fromMatr.matPtr == NULL) {
-		matPtr == NULL;
+	if (fromMatr.matPtr == nullptr) {
+		matPtr == nullptr;
 		sizeCols = 0;
 		sizeRows = 0;
 		return;
@@ -56,7 +56,7 @@ Matrix::Matrix(const Matrix& fromMatr) {
 
 //destructor
 Matrix::~Matrix() {
-	if (matPtr == NULL) {
+	if (matPtr == nullptr) {
 		return;
 	}
 	if (sizeCols != 0 ) {
@@ -65,7 +65,7 @@ Matrix::~Matrix() {
 		}
 	}
 	free(matPtr);
-	matPtr = NULL;
+	matPtr = nullptr;
 }
 
 //public void to get number of rows
@@ -80,7 +80,7 @@ int Matrix::getSizeCols() {
 
 //for printing matrix
 void Matrix::print() {
-	if (matPtr == NULL || sizeRows == 0 || sizeCols == 0) {
+	if (matPtr == nullptr || sizeRows == 0 || sizeCols == 0) {
 		throw exception("Error, Matrix uninitialized or contains no values");
 	}
 	else {
@@ -95,7 +95,7 @@ void Matrix::print() {
 
 //get value of precise element in matrix
 double Matrix::getElement(const int i,const int j) {
-	if (matPtr == NULL || sizeRows == 0 || sizeCols == 0) {
+	if (matPtr == nullptr || sizeRows == 0 || sizeCols == 0) {
 		throw exception("Error, trying to get value of uninitialized matrix\n");
 	}
 	else if(i < 0 || i >= sizeRows || j < 0 || j >= sizeCols){
@@ -108,7 +108,7 @@ double Matrix::getElement(const int i,const int j) {
 
 //set value of precise element in matrix
 void Matrix::setElement(const int i,const int j,const double& value) {
-	if (matPtr == NULL || sizeRows == 0 || sizeCols == 0) {
+	if (matPtr == nullptr || sizeRows == 0 || sizeCols == 0) {
 		throw exception("Error, trying to get value of uninitialized matrix\n");
 	}
 	else if (i < 0 || i >= sizeRows || j < 0 || j >= sizeCols) {
@@ -196,14 +196,14 @@ void Matrix::setElement(const int i,const int j,const double& value) {
  //overloading assignment operator 
 Matrix& Matrix::operator=(const Matrix& mtrx) {
 	 cout << "assignment overload called\n\n";
-	 if (matPtr != NULL && sizeCols !=0) {
+	 if (matPtr != nullptr && sizeCols !=0) {
 		 for (int i = 0; i < sizeRows; i++) {
 			 free(matPtr[i]);
 		}
 		 free(matPtr);
 	 }
-	 if (mtrx.matPtr == NULL) {
-		 matPtr == NULL;
+	 if (mtrx.matPtr == nullptr) {
+		 matPtr == nullptr;
 		 sizeCols = 0;
 		 sizeRows = 0; 
 	 } else {
@@ -252,7 +252,7 @@ Matrix& Matrix::operator-=(const Matrix& mtrx) {
 
 //overload compound operator of assignment and multiplication
 Matrix& Matrix::operator*=(const Matrix& mtrx1) {
-	if (sizeCols == 0 || mtrx1.sizeCols == 0 || mtrx1.matPtr == NULL || matPtr == NULL) {
+	if (sizeCols == 0 || mtrx1.sizeCols == 0 || mtrx1.matPtr == nullptr || matPtr == nullptr) {
 		throw exception("Error,while trying to multiply\n");
 	}
 	else if (sizeRows != mtrx1.sizeCols) {
@@ -292,7 +292,7 @@ Matrix& Matrix::operator*=(const Matrix& mtrx1) {
  
 //overload scalar multiplication 
 void Matrix::operator^(const double& a) {
-	if (matPtr == NULL || sizeCols == 0) {
+	if (matPtr == nullptr || sizeCols == 0) {
 		throw exception("Error, Matrix is not initialized\n");
 		return;
 	}
@@ -307,7 +307,7 @@ void Matrix::operator^(const double& a) {
 
 //overload transposing using ! as operator
 Matrix Matrix::operator!() {
-	if (matPtr == NULL || sizeCols == 0) {
+	if (matPtr == nullptr || sizeCols == 0) {
 		throw exception("Error, Matrix is not initialized, what are you transposing ??\n");
 	}
 	else {
@@ -323,7 +323,7 @@ Matrix Matrix::operator!() {
 
 //overload multiplication operator
 Matrix operator*(const Matrix& mtrx1,const Matrix& mtrx2) {
-	if (mtrx1.sizeCols == 0 || mtrx2.sizeCols == 0 || mtrx1.matPtr == NULL || mtrx2.matPtr == NULL) {
+	if (mtrx1.sizeCols == 0 || mtrx2.sizeCols == 0 || mtrx1.matPtr== nullptr || mtrx2.matPtr == nullptr){
 		throw exception("Error,while trying to multiply\n");
 	}
 	else if(mtrx1.sizeRows != mtrx2.sizeCols) {
